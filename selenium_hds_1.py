@@ -10,7 +10,7 @@ options.add_argument('window-size=1024,768')
 driver = webdriver.Chrome(filename,options=options)
 print(type(driver))
 
-url = 'https://esg.hyundai-steel.com/'
+url = 'https://esg.google.com/'
 driver.get(url)
 
 #search_textbox = driver.find_element(by=By.NAME, value='query')
