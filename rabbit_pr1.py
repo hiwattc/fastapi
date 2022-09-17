@@ -1,5 +1,5 @@
 import pika
-
+import uuid
 class Publisher:
     def __init__(self):
         self.__url = '127.0.0.1'
@@ -13,9 +13,10 @@ class Publisher:
         conn = pika.BlockingConnection(pika.ConnectionParameters(self.__url, self.__port, self.__vhost, self.__cred))
         chan = conn.channel()
         chan.basic_publish(
-            exchange = 'amq.topic',
+            #exchange = 'amq.topic',
+            exchange = 'amq.fanout',
             routing_key = self.__queue,
-            body = 'Hello RabbitMQ'
+            body = 'Hello RabbitMQ'+str(uuid.uuid1())
         )
         conn.close()
         return
