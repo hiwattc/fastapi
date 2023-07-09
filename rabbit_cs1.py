@@ -2,10 +2,10 @@ import pika
 
 class Consumer:
     def __init__(self):
-        self.__url = '127.0.0.1'
+        self.__url = '192.168.56.22'
         self.__port = 5672
         self.__vhost = '/'
-        self.__cred = pika.PlainCredentials('guest', 'guest')
+        self.__cred = pika.PlainCredentials('test', 'test')
         self.__queue = 'test_q1'
         return
 
